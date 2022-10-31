@@ -1,0 +1,53 @@
+/* header styling */
+body {
+  background-color: rgb(242, 242, 242);
+  font-family: Montserrat, "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 700;
+}
+
+header {
+  background-color: darkorchid;
+  color: whitesmoke;
+  font-size: 0.5rem;
+}
+
+/* main styling */
+
+h2 {
+  font-size: 2rem;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  height: 2rem;
+}
+
+label {
+  display: inline-block;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+.new-entry {
+  margin-bottom: 2rem;
+}
+
+.btn-container {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.btn-save {
+  background-color: darkorchid;
+  color: whitesmoke;
+  padding: 0.25rem 0;
+  width: 4rem;
+}
