@@ -20,19 +20,19 @@
 </head>
 <body>
   <header>
-    <div class="row container ">
-      <div class="column-full">
-        <h1>Code Journal</h1>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>Code Journal</h1>
+        </div>
       </div>
     </div>
   </header>
   <main>
-    <div class="row container" data-view="entry-form">
-      <div class="column-full">
-        <div class="row">
-          <div class="column-full">
-            <h2>New Entry</h2>
-          </div>
+    <div class="container" data-view="entry-form">
+      <div class="row">
+        <div class="column-full">
+          <h2>New Entry</h2>
         </div>
         <form action="" method="get" class="new-entry">
           <div class="row">
@@ -46,9 +46,9 @@
               <div class="new-entry">
                 <input type="text" name="title" id="title" required>
               </div>
-              <label for="image">Photo URL</label>
+              <label for="url">Photo URL</label>
               <div class="new-entry">
-                <input type="url" name="image" id="image" required>
+                <input class="image-submit" type="url" name="url" id="url" required>
               </div>
             </div>
           </div>
@@ -71,33 +71,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-<!-- <div class="row">
-  <div class="column-full column-half">
-    <h2>New Entry</h2>
-    <div class="new-entry">
-      <img src="images/placeholder-image-square.jpg" alt="generic placeholder image">
-    </div>
-  </div>
-  <div class="input-container">
-    <label for="title">Title</label>
-    <div class="new-entry">
-      <input type="text" name="title" id="title" required>
-    </div>
-    <label for="image">Photo URL</label>
-    <div class="new-entry">
-      <input type="url" name="image" id="image" required>
-    </div>
-  </div>
-  <div>
-    <label for="notes">Notes</label>
-    <div class="new-entry column-full">
-      <textarea name="notes" id="notes" cols="30" rows="10" placeholder="Type notes here..." required></textarea>
-    </div>
-    <div class="new-entry btn-container">
-      <input class="btn-save" type="submit" value="SAVE">
-    </div>
-  </div>
-</div> -->
