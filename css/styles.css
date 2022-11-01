@@ -36,12 +36,12 @@ textarea {
   width: 100%;
 }
 
-.new-entry {
+.utl-container {
   margin-bottom: 2rem;
 }
 
 .btn-container {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   text-align: right;
 }
 
@@ -49,5 +49,5 @@ textarea {
   background-color: darkorchid;
   color: whitesmoke;
   padding: 0.25rem 0;
-  width: 4rem;
+  width: 6rem;
 }
