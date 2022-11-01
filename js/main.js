@@ -22,7 +22,4 @@ function handleSubmit(event) {
 
   $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $submitForm.reset();
-
-  var dataJSON = JSON.stringify(data);
-  localStorage.setItem('user-entry-data-local-storage', dataJSON);
 }
