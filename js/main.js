@@ -18,7 +18,7 @@ function handleSubmit(event) {
   userEntryData.notes = $submitForm.elements.notes.value;
   userEntryData.entryId = data.nextEntryId;
   data.nextEntryId++;
-  data.entries = userEntryData;
+  data.entries.unshift(userEntryData);
 
   $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $submitForm.reset();
