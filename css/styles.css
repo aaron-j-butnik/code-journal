@@ -48,7 +48,7 @@ textarea {
   text-align: right;
 }
 
-.btn-save {
+.btn-utility {
   background-color: darkorchid;
   border: 1px solid grey;
   border-radius: 6px;
@@ -69,11 +69,36 @@ textarea {
   width: 6rem;
 }
 
-.btn-save:hover {
+.btn-utility:hover {
   cursor: pointer;
 }
 
-.btn-save:active {
+.btn-utility:active {
   font-size: 1.25rem;
   transform: scale(0.9);
+}
+
+/* "entries-page" element/class styles */
+
+.row-entries-head-styles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entry-ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.entry-list-img {
+  margin-bottom: 4rem;
+  margin-right: 2rem;
+  margin-top: 0;
+}
+
+.entry-list-text {
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
 }
