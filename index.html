@@ -34,7 +34,7 @@
         <div class="column-full">
           <h2>New Entry</h2>
         </div>
-        <form action="" method="get" class="user-entry-form">
+        <form action="" id="user-entry-form">
           <div class="row">
             <div class="column-half">
               <div class="utl-container">
@@ -44,11 +44,11 @@
             <div class="column-half">
               <label for="title">Title</label>
               <div class="utl-container">
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="user-title" required>
               </div>
               <label for="url">Photo URL</label>
               <div class="utl-container">
-                <input class="image-submit" type="url" name="url" id="url" required>
+                <input class="image-submit" type="url" name="url" id="user-url" required>
               </div>
             </div>
           </div>
@@ -56,10 +56,10 @@
             <div class="column-full">
               <label for="notes">Notes</label>
               <div class="utl-container">
-                <textarea name="notes" id="notes" cols="30" rows="10" placeholder="Type notes here..." required></textarea>
+                <textarea name="notes" id="user-notes" cols="30" rows="10" placeholder="Type notes here..." required></textarea>
               </div>
               <div class="utl-container btn-container">
-                <input class="btn-save" type="submit" value="SAVE">
+                <button type="submit">SAVE</button>
               </div>
             </div>
           </div>
