@@ -19,6 +19,7 @@ h2 {
 
 img {
   width: 100%;
+  box-shadow: 3px 4px 6px 2px rgb(186, 186, 186);
 }
 
 input {
@@ -33,7 +34,10 @@ label {
 
 input,
 textarea {
+  border: none;
+  border-radius: 4px;
   width: 100%;
+  box-shadow: 3px 4px 6px 2px rgb(186, 186, 186);
 }
 
 .utl-container {
@@ -47,7 +51,30 @@ textarea {
 
 .btn-save {
   background-color: darkorchid;
+  border: 1px solid grey;
+  border-radius: 6px;
+  box-shadow: 3px 4px 6px 2px rgb(186, 186, 186);
   color: whitesmoke;
+  font-family:
+    Montserrat,
+    "Trebuchet MS",
+    "Lucida Sans Unicode",
+    "Lucida Grande",
+    "Lucida Sans",
+    Arial,
+    sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   padding: 0.25rem 0;
   width: 6rem;
+}
+
+.btn-save:hover {
+  cursor: pointer;
+}
+
+.btn-save:active {
+  font-size: 1.25rem;
+  transform: scale(0.9);
 }
