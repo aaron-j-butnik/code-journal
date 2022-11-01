@@ -7,6 +7,7 @@ $submitForm.addEventListener('submit', handleSubmit);
 
 function handlePhotoUpdate(event) {
   $imageUpdate.setAttribute('src', event.target.value);
+
 }
 
 function handleSubmit(event) {
@@ -20,5 +21,8 @@ function handleSubmit(event) {
   data.nextEntryId++;
   data.entries = userEntryData;
   // console.log(data);
+  $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $submitForm.reset();
 }
+
+// console.log();
