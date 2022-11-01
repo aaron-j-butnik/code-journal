@@ -18,7 +18,7 @@ function handleSubmit(event) {
   userEntryData.notes = $submitForm.elements.notes.value;
   userEntryData.entryId = data.nextEntryId;
   data.nextEntryId++;
-
-  // console.log(userEntryData);
+  data.entries = userEntryData;
+  // console.log(data);
   $submitForm.reset();
 }
