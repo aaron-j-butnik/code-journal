@@ -97,8 +97,13 @@ textarea {
   margin-top: 0;
 }
 
-.entry-list-text {
-  line-height: 1.5;
+.entry-list-title {
   margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.entry-list-notes {
+  line-height: 1.75;
+  margin-bottom: 2rem;
   margin-top: 0;
 }
