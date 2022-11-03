@@ -92,6 +92,7 @@ function handleSwapToEntries(event) {
         $viewElements[i].className = ('view');
       }
     }
+    data.view = 'entries';
   }
 }
 
@@ -104,6 +105,7 @@ function handleSwapToNewEntry(event) {
         $viewElements[i].className = ('view');
       }
     }
+    data.view = 'entry-form';
   }
 }
 
@@ -114,5 +116,18 @@ function handleSaveBtnSwap(event) {
     } else {
       $viewElements[i].className = ('view');
     }
+  }
+  data.view = 'entries';
+}
+
+window.addEventListener('DOMContentLoaded', handlePageRefresh);
+
+function handlePageRefresh(event) {
+  if (data.view === 'entry-form') {
+    $entryForm.className = ('view');
+    $viewEntry.className = ('hidden');
+  } else if (data.view === 'entries') {
+    $viewEntry.className = ('view');
+    $entryForm.className = ('hidden');
   }
 }
