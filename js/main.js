@@ -46,6 +46,9 @@ function renderEntry(entry) {
   var h3Content = document.createTextNode(entry.title);
   h3Title.setAttribute('class', 'entry-list-title');
 
+  var penIcon = document.createElement('span');
+  penIcon.setAttribute('class', 'fa-solid fa-pencil');
+
   var divText = document.createElement('div');
   divText.setAttribute('class', 'column-half');
 
@@ -58,10 +61,14 @@ function renderEntry(entry) {
   divRow.appendChild(divText);
   divImg.appendChild(imgEntryEl);
   divText.appendChild(h3Title);
+  divText.appendChild(penIcon);
   divText.appendChild(paragraph);
-
   h3Title.appendChild(h3Content);
   paragraph.appendChild(pContent);
+
+  for (var i = 0; i < data.entries.length; i++) {
+    liColumnFull.setAttribute('data-entry', i + 1);
+  }
 
   return liColumnFull;
 }
