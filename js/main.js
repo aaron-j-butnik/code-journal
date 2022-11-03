@@ -84,21 +84,25 @@ $newBtn.addEventListener('click', handleSwapToNewEntry);
 $saveBtn.addEventListener('click', handleSaveBtnSwap);
 
 function handleSwapToEntries(event) {
-  for (var i = 0; i < $viewElements.length; i++) {
-    if ($entryForm.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
-      $viewElements[i].className = ('hidden');
-    } else {
-      $viewElements[i].className = ('view');
+  if (event.target.matches('a')) {
+    for (var i = 0; i < $viewElements.length; i++) {
+      if ($entryForm.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
+        $viewElements[i].className = ('hidden');
+      } else {
+        $viewElements[i].className = ('view');
+      }
     }
   }
 }
 
 function handleSwapToNewEntry(event) {
-  for (var i = 0; i < $viewElements.length; i++) {
-    if ($viewEntry.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
-      $viewElements[i].className = ('hidden');
-    } else {
-      $viewElements[i].className = ('view');
+  if (event.target.matches('a')) {
+    for (var i = 0; i < $viewElements.length; i++) {
+      if ($viewEntry.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
+        $viewElements[i].className = ('hidden');
+      } else {
+        $viewElements[i].className = ('view');
+      }
     }
   }
 }
