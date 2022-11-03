@@ -46,7 +46,7 @@ function renderEntry(entry) {
   var h3Content = document.createTextNode(entry.title);
   h3Title.setAttribute('class', 'entry-list-title');
 
-  var penIcon = document.createElement('span');
+  var penIcon = document.createElement('a');
   penIcon.setAttribute('class', 'fa-solid fa-pencil');
 
   var divText = document.createElement('div');
@@ -136,5 +136,17 @@ function handlePageRefresh(event) {
   } else if (data.view === 'entries') {
     $viewEntry.className = ('view');
     $entryForm.className = ('hidden');
+  }
+}
+
+var $parentOfDOM = document.querySelector('.entry-ul');
+
+$parentOfDOM.addEventListener('click', handleShowEntryForm);
+// var penEditor = document.querySelector('a.fa-solid, a.fa-pencil');
+// console.log(penEditor);
+function handleShowEntryForm(event) {
+  if (event.target.matches('a')) {
+    $entryForm.className = ('view');
+    $viewEntry.className = ('hidden');
   }
 }
