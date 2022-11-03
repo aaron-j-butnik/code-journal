@@ -8,7 +8,13 @@ body {
 header {
   background-color: darkorchid;
   color: whitesmoke;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.nav-styles {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 /* main styling */
@@ -80,6 +86,10 @@ textarea {
 
 /* "entries-page" element/class styles */
 
+li {
+  margin-bottom: 5rem;
+}
+
 .row-entries-head-styles {
   display: flex;
   justify-content: space-between;
@@ -92,7 +102,7 @@ textarea {
 }
 
 .entry-list-img {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   margin-right: 2rem;
   margin-top: 0;
 }
@@ -104,6 +114,5 @@ textarea {
 
 .entry-list-notes {
   line-height: 1.75;
-  margin-bottom: 2rem;
   margin-top: 0;
 }
