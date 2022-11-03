@@ -22,10 +22,9 @@
   <header>
     <div class="row container">
       <div class="column-full">
-        <div class="row">
-          <div class="column-full">
-            <h1>Code Journal</h1>
-          </div>
+        <div class="row nav-styles">
+          <h1>Code Journal</h1>
+          <a class="nav-link" href="#">Entries</a>
         </div>
       </div>
     </div>
@@ -66,17 +65,19 @@
         </div>
       </div>
     </form>
-    <div class="row" data-view="entries">
-      <div class="column-full">
-        <div class="row row-entries-head-styles">
-          <h2>Entries</h2>
-          <button class="btn-utility" type="submit">
-            NEW
-          </button>
+    <div class="entry-container">
+      <div class="row" data-view="entries">
+        <div class="column-full">
+          <div class="row row-entries-head-styles">
+            <h2>Entries</h2>
+            <button class="btn-utility" type="submit">
+              NEW
+            </button>
+          </div>
         </div>
+        <ul class="row entry-ul">
+        </ul>
       </div>
-      <ul class="row entry-ul">
-      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>

@@ -24,7 +24,7 @@ function handleSubmit(event) {
   $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
   $submitForm.reset();
 
-  handleDOMLoad(userEntryData);
+  $addDOMTree.prepend(renderEntry(userEntryData));
 }
 
 function renderEntry(entry) {
@@ -65,10 +65,10 @@ function renderEntry(entry) {
   return liColumnFull;
 }
 
-var addDOMTree = document.querySelector('.entry-ul');
+var $addDOMTree = document.querySelector('.entry-ul');
 
 function handleDOMLoad(event) {
   for (var i = 0; i < data.entries.length; i++) {
-    addDOMTree.appendChild(renderEntry(data.entries[i]));
+    $addDOMTree.appendChild(renderEntry(data.entries[i]));
   }
 }

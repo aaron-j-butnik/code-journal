@@ -13,8 +13,14 @@ header {
 
 .nav-styles {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding-left: 4rem;
+  font-size: 1rem;
+  color: whitesmoke;
 }
 
 /* main styling */
