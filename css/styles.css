@@ -60,6 +60,12 @@ textarea {
   text-align: right;
 }
 
+.btn-new {
+  color: whitesmoke;
+  text-align: center;
+  text-decoration: none;
+}
+
 .btn-utility {
   background-color: darkorchid;
   border: 1px solid grey;

@@ -1,6 +1,7 @@
 var $imageSubmit = document.querySelector('.image-submit');
 var $imageUpdate = document.querySelector('img');
-var $submitForm = document.querySelector('#user-entry-form');
+var $submitForm = document.querySelector('.user-entry-form');
+var $addDOMTree = document.querySelector('.entry-ul');
 
 $imageSubmit.addEventListener('input', handlePhotoUpdate);
 $submitForm.addEventListener('submit', handleSubmit);
@@ -65,10 +66,49 @@ function renderEntry(entry) {
   return liColumnFull;
 }
 
-var $addDOMTree = document.querySelector('.entry-ul');
-
 function handleDOMLoad(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $addDOMTree.appendChild(renderEntry(data.entries[i]));
+  }
+}
+
+var $navBtn = document.querySelector('.nav-link');
+var $newBtn = document.getElementById('new-btn');
+var $viewElements = document.querySelectorAll('.view');
+var $entryForm = document.getElementById('entry-form');
+var $viewEntry = document.getElementById('view-entry');
+var $saveBtn = document.getElementById('save-btn');
+
+$navBtn.addEventListener('click', handleSwapToEntries);
+$newBtn.addEventListener('click', handleSwapToNewEntry);
+$saveBtn.addEventListener('click', handleSaveBtnSwap);
+
+function handleSwapToEntries(event) {
+  for (var i = 0; i < $viewElements.length; i++) {
+    if ($entryForm.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
+      $viewElements[i].className = ('hidden');
+    } else {
+      $viewElements[i].className = ('view');
+    }
+  }
+}
+
+function handleSwapToNewEntry(event) {
+  for (var i = 0; i < $viewElements.length; i++) {
+    if ($viewEntry.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
+      $viewElements[i].className = ('hidden');
+    } else {
+      $viewElements[i].className = ('view');
+    }
+  }
+}
+
+function handleSaveBtnSwap(event) {
+  for (var i = 0; i < $viewElements.length; i++) {
+    if ($entryForm.getAttribute('data-view') === $viewElements[i].getAttribute('data-view')) {
+      $viewElements[i].className = ('hidden');
+    } else {
+      $viewElements[i].className = ('view');
+    }
   }
 }

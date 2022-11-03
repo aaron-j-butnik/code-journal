@@ -30,49 +30,49 @@
     </div>
   </header>
   <main class="container">
-    <div class="row" data-view="entry-form">
-      <div class="column-full">
-        <h2>New Entry</h2>
-      </div>
-    </div>
-    <form action="" id="user-entry-form">
-      <div class="row">
-        <div class="column-half">
-          <div class="utl-container">
-            <img src="images/placeholder-image-square.jpg" alt="">
-          </div>
-        </div>
-        <div class="column-half">
-          <label for="title">Title</label>
-          <div class="utl-container">
-            <input type="text" name="title" id="user-title" required>
-          </div>
-          <label for="url">Photo URL</label>
-          <div class="utl-container">
-            <input class="image-submit" type="url" name="url" id="user-url" required>
-          </div>
-        </div>
-      </div>
+    <div class="view" id="entry-form" data-view="entry-form">
       <div class="row">
         <div class="column-full">
-          <label for="notes">Notes</label>
-          <div class="utl-container">
-            <textarea name="notes" id="user-notes" cols="30" rows="10" required></textarea>
-          </div>
-          <div class="utl-container btn-container">
-            <button class="btn-utility" type="submit">SAVE</button>
-          </div>
+          <h2>New Entry</h2>
         </div>
       </div>
-    </form>
-    <div class="entry-container">
-      <div class="row" data-view="entries">
+      <form action="" class="user-entry-form">
+        <div class="row">
+          <div class="column-half">
+            <div class="utl-container">
+              <img src="images/placeholder-image-square.jpg" alt="">
+            </div>
+          </div>
+          <div class="column-half">
+            <label for="title">Title</label>
+            <div class="utl-container">
+              <input type="text" name="title" id="user-title" required>
+            </div>
+            <label for="url">Photo URL</label>
+            <div class="utl-container">
+              <input class="image-submit" type="url" name="url" id="user-url" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <div class="utl-container">
+              <textarea name="notes" id="user-notes" cols="30" rows="10" required></textarea>
+            </div>
+            <div class="utl-container btn-container">
+              <button class="btn-utility" type="submit" id="save-btn">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="view hidden" data-view="entries" id="view-entry">
+      <div class="row">
         <div class="column-full">
           <div class="row row-entries-head-styles">
             <h2>Entries</h2>
-            <button class="btn-utility" type="submit">
-              NEW
-            </button>
+            <a class="btn-new btn-utility" href="#" id="new-btn">NEW</a>
           </div>
         </div>
         <ul class="row entry-ul">
