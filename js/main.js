@@ -66,9 +66,7 @@ function renderEntry(entry) {
   h3Title.appendChild(h3Content);
   paragraph.appendChild(pContent);
 
-  for (var i = 0; i < data.entries.length; i++) {
-    liColumnFull.setAttribute('data-entry-id', i + 1);
-  }
+  liColumnFull.setAttribute('data-entry-id', entry.entryId);
 
   return liColumnFull;
 }
