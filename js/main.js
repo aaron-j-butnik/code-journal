@@ -140,25 +140,13 @@ function handlePageRefresh(event) {
 // var $parentOfDOM = document.querySelector('.entry-ul');
 
 // $parentOfDOM.addEventListener('click', handleShowEntryForm);
-// var penEditor = document.querySelector('a.fa-solid, a.fa-pencil');
-// console.log(penEditor);
-// function handleShowEntryForm(event) {
-//   if (event.target.matches('a')) {
-//     $entryForm.className = ('view');
-//     $viewEntry.className = ('hidden');
-//     for (var i = 0; i < data.entries.length; i++) {
 
-//     }
-//   }
-// }
+// // function handleShowEntryForm(event) {
+// //   if (event.target.matches('fa-solid fa-pencil')) {
+// //     $entryForm.className = ('view');
+// //     $viewEntry.className = ('hidden');
+// //     for (var i = 0; i < data.entries.length; i++) {
 
-// window.addEventListener('DOMContentLoaded', handleDOMRefresh);
-
-// function handleDOMRefresh(event) {
-//   var $entryList = document.querySelectorAll('li');
-//   var $entryListFirst = document.querySelector('li');
-//   $entryListFirst.setAttribute('data-entry-id', 1);
-//   for (var i = 1; i < $entryList.length; i++) {
-//     $entryList[i].setAttribute('data-entry-id', $entryList.length);
-//   }
-// }
+// //     }
+// //   }
+// // }
