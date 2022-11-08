@@ -68,22 +68,6 @@ function renderEntry(entry) {
   paragraph.appendChild(pContent);
 
   liColumnFull.setAttribute('data-entry-id', entry.entryId);
-  var $parentOfDOM = document.querySelector('.entry-ul');
-
-  $parentOfDOM.addEventListener('click', handleEditBtn);
-
-  function handleEditBtn(event) {
-    if (event.target.matches('div.column-half > a')) {
-      $entryForm.className = ('view');
-      $viewEntry.className = ('hidden');
-      // for (var i = 0; i < data.entries.length; i++) {
-      //   if (liColumnFull.getAttribute('data-entry') === data.entries[i].entryId) {
-      //     data.editing = data.entries[i].entryId;
-      //   }
-      // }
-      data.editing = data.entries[3];
-    }
-  }
 
   return liColumnFull;
 }
@@ -151,3 +135,21 @@ function handlePageRefresh(event) {
     $entryForm.className = ('hidden');
   }
 }
+
+// var $ulParentOfDOM = document.querySelector('.entry-ul');
+
+// $ulParentOfDOM.addEventListener('click', handleEditBtn);
+
+// function handleEditBtn(event) {
+//   if (event.target.matches('div.column-half > a')) {
+//     $entryForm.className = ('view');
+//     $viewEntry.className = ('hidden');
+//     for (var i = 0; i < data.entries.length; i++) {
+//       if (liColumnFull.getAttribute('data-entry-id') === data.entries[i].entryId) {
+//         data.editing = data.entries[i];
+//       }
+//     }
+//   }
+// }
+
+// console.log();
