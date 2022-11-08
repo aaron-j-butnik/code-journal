@@ -6,6 +6,7 @@ var $addDOMTree = document.querySelector('.entry-ul');
 $imageSubmit.addEventListener('input', handlePhotoUpdate);
 $submitForm.addEventListener('submit', handleSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMLoad);
+window.addEventListener('DOMContentLoaded', handlePageRefresh);
 
 function handlePhotoUpdate(event) {
   $imageUpdate.setAttribute('src', event.target.value);
@@ -67,6 +68,22 @@ function renderEntry(entry) {
   paragraph.appendChild(pContent);
 
   liColumnFull.setAttribute('data-entry-id', entry.entryId);
+  var $parentOfDOM = document.querySelector('.entry-ul');
+
+  $parentOfDOM.addEventListener('click', handleEditBtn);
+
+  function handleEditBtn(event) {
+    if (event.target.matches('div.column-half > a')) {
+      $entryForm.className = ('view');
+      $viewEntry.className = ('hidden');
+      // for (var i = 0; i < data.entries.length; i++) {
+      //   if (liColumnFull.getAttribute('data-entry') === data.entries[i].entryId) {
+      //     data.editing = data.entries[i].entryId;
+      //   }
+      // }
+      data.editing = data.entries[3];
+    }
+  }
 
   return liColumnFull;
 }
@@ -125,8 +142,6 @@ function handleSaveBtnSwap(event) {
   data.view = 'entries';
 }
 
-window.addEventListener('DOMContentLoaded', handlePageRefresh);
-
 function handlePageRefresh(event) {
   if (data.view === 'entry-form') {
     $entryForm.className = ('view');
@@ -136,17 +151,3 @@ function handlePageRefresh(event) {
     $entryForm.className = ('hidden');
   }
 }
-
-// var $parentOfDOM = document.querySelector('.entry-ul');
-
-// $parentOfDOM.addEventListener('click', handleShowEntryForm);
-
-// // function handleShowEntryForm(event) {
-// //   if (event.target.matches('fa-solid fa-pencil')) {
-// //     $entryForm.className = ('view');
-// //     $viewEntry.className = ('hidden');
-// //     for (var i = 0; i < data.entries.length; i++) {
-
-// //     }
-// //   }
-// // }
