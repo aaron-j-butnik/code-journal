@@ -136,20 +136,22 @@ function handlePageRefresh(event) {
   }
 }
 
-// var $ulParentOfDOM = document.querySelector('.entry-ul');
+var $ulParentOfDOM = document.querySelector('.entry-ul');
 
-// $ulParentOfDOM.addEventListener('click', handleEditBtn);
+$ulParentOfDOM.addEventListener('click', handleEditBtn);
 
-// function handleEditBtn(event) {
-//   if (event.target.matches('div.column-half > a')) {
-//     $entryForm.className = ('view');
-//     $viewEntry.className = ('hidden');
-//     for (var i = 0; i < data.entries.length; i++) {
-//       if (liColumnFull.getAttribute('data-entry-id') === data.entries[i].entryId) {
-//         data.editing = data.entries[i];
-//       }
-//     }
-//   }
-// }
+function handleEditBtn(event) {
+  var liColumnFull = event.target.closest('[data-entry-id]');
+  // console.log(liColumnFull);
+  if (event.target.matches('div.column-half > a')) {
+    $entryForm.className = ('view');
+    $viewEntry.className = ('hidden');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (liColumnFull === data.entries[i].entryId) {
+        data.editing = data.entries[i];
+      }
+    }
+  }
+}
 
 // console.log();
