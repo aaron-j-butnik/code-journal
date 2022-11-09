@@ -155,6 +155,7 @@ function handlePageRefresh(event) {
 }
 
 var $ulParentOfDOM = document.querySelector('.entry-ul');
+// var $h2Entry = document.querySelector('');
 
 $ulParentOfDOM.addEventListener('click', handleEditBtn);
 
@@ -163,6 +164,7 @@ function handleEditBtn(event) {
   if (event.target.matches('div.column-half > a')) {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
+    // $h2Entry.className = ('hidden');
     for (var i = 0; i < data.entries.length; i++) {
       if (Number(liColumnFull.getAttribute('data-entry-id')) === data.entries[i].entryId) {
         data.editing = data.entries[i];
