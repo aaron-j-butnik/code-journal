@@ -14,19 +14,34 @@ function handlePhotoUpdate(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  var userEntryData = {};
+  if (data.editing === null) {
+    var userEntryData = {};
 
-  userEntryData.title = $submitForm.elements.title.value;
-  userEntryData.url = $submitForm.elements.url.value;
-  userEntryData.notes = $submitForm.elements.notes.value;
-  userEntryData.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(userEntryData);
+    userEntryData.title = $submitForm.elements.title.value;
+    userEntryData.url = $submitForm.elements.url.value;
+    userEntryData.notes = $submitForm.elements.notes.value;
+    userEntryData.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(userEntryData);
 
-  $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $submitForm.reset();
+    $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $submitForm.reset();
 
-  $addDOMTree.prepend(renderEntry(userEntryData));
+    $addDOMTree.prepend(renderEntry(userEntryData));
+
+  } else {
+    var updateTitle = document.querySelector('#user-title');
+    data.editing.title = updateTitle.value;
+
+    var updateParagraph = document.querySelector('#user-notes');
+    data.editing.notes = updateParagraph.value;
+
+    var updateUrl = document.querySelector('.image-submit');
+    data.editing.url = updateUrl.value;
+
+  }
+
+  location.reload();
 }
 
 function renderEntry(entry) {
@@ -51,7 +66,7 @@ function renderEntry(entry) {
   penIcon.setAttribute('class', 'fa-solid fa-pencil');
 
   var divText = document.createElement('div');
-  divText.setAttribute('class', 'column-half');
+  divText.setAttribute('class', 'column-half edit-btn');
 
   var paragraph = document.createElement('p');
   var pContent = document.createTextNode(entry.notes);
@@ -112,6 +127,9 @@ function handleSwapToNewEntry(event) {
       }
     }
     data.view = 'entry-form';
+    $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $submitForm.reset();
+
   }
 }
 
@@ -142,15 +160,25 @@ $ulParentOfDOM.addEventListener('click', handleEditBtn);
 
 function handleEditBtn(event) {
   var liColumnFull = event.target.closest('[data-entry-id]');
-  // console.log(liColumnFull);
   if (event.target.matches('div.column-half > a')) {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
     for (var i = 0; i < data.entries.length; i++) {
-      if (liColumnFull === data.entries[i].entryId) {
+      if (Number(liColumnFull.getAttribute('data-entry-id')) === data.entries[i].entryId) {
         data.editing = data.entries[i];
       }
     }
+    var updateTitle = document.querySelector('#user-title');
+    updateTitle.value = data.editing.title;
+
+    var updateParagraph = document.querySelector('#user-notes');
+    updateParagraph.value = data.editing.notes;
+
+    var updateUrl = document.querySelector('.image-submit');
+    updateUrl.value = data.editing.url;
+
+    var updateImg = document.querySelector('#entry-image');
+    updateImg.setAttribute('src', data.editing.url);
   }
 }
 
