@@ -30,6 +30,7 @@ function handleSubmit(event) {
     $addDOMTree.prepend(renderEntry(userEntryData));
 
   } else {
+
     var updateTitle = document.querySelector('#user-title');
     data.editing.title = updateTitle.value;
 
@@ -41,7 +42,13 @@ function handleSubmit(event) {
 
   }
 
-  location.reload();
+  // 1. Read the data again
+  // 2. Render the data again
+
+  // location.reload();
+  handleDOMLoad();
+
+  data.editing = null;
 }
 
 function renderEntry(entry) {
@@ -88,6 +95,8 @@ function renderEntry(entry) {
 }
 
 function handleDOMLoad(event) {
+  $addDOMTree.innerText = '';
+
   for (var i = 0; i < data.entries.length; i++) {
     $addDOMTree.appendChild(renderEntry(data.entries[i]));
   }
@@ -148,6 +157,7 @@ function handlePageRefresh(event) {
   if (data.view === 'entry-form') {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
+    $h2Editing.classList.add('hidden');
   } else if (data.view === 'entries') {
     $viewEntry.className = ('view');
     $entryForm.className = ('hidden');
@@ -155,7 +165,8 @@ function handlePageRefresh(event) {
 }
 
 var $ulParentOfDOM = document.querySelector('.entry-ul');
-// var $h2Entry = document.querySelector('');
+var $h2Entry = document.querySelector('.new-entry ');
+var $h2Editing = document.querySelector('.edit-entry');
 
 $ulParentOfDOM.addEventListener('click', handleEditBtn);
 
@@ -164,7 +175,8 @@ function handleEditBtn(event) {
   if (event.target.matches('div.column-half > a')) {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
-    // $h2Entry.className = ('hidden');
+    $h2Entry.classList.add('hidden');
+    $h2Editing.classList.remove('hidden');
     for (var i = 0; i < data.entries.length; i++) {
       if (Number(liColumnFull.getAttribute('data-entry-id')) === data.entries[i].entryId) {
         data.editing = data.entries[i];
@@ -183,5 +195,3 @@ function handleEditBtn(event) {
     updateImg.setAttribute('src', data.editing.url);
   }
 }
-
-// console.log();
