@@ -30,7 +30,6 @@ function handleSubmit(event) {
     $addDOMTree.prepend(renderEntry(userEntryData));
 
   } else {
-
     var updateTitle = document.querySelector('#user-title');
     data.editing.title = updateTitle.value;
 
@@ -41,13 +40,7 @@ function handleSubmit(event) {
     data.editing.url = updateUrl.value;
 
   }
-
-  // 1. Read the data again
-  // 2. Render the data again
-
-  // location.reload();
   handleDOMLoad();
-
   data.editing = null;
 }
 
@@ -95,7 +88,7 @@ function renderEntry(entry) {
 }
 
 function handleDOMLoad(event) {
-  $addDOMTree.innerText = '';
+  $addDOMTree.textContent = '';
 
   for (var i = 0; i < data.entries.length; i++) {
     $addDOMTree.appendChild(renderEntry(data.entries[i]));
@@ -138,7 +131,7 @@ function handleSwapToNewEntry(event) {
     data.view = 'entry-form';
     $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
     $submitForm.reset();
-
+    $h2Editing.classList.add('hidden');
   }
 }
 
