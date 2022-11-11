@@ -47,7 +47,7 @@ function handleSubmit(event) {
 
 function renderEntry(entry) {
   var liColumnFull = document.createElement('li');
-  liColumnFull.setAttribute('class', 'column-full');
+  liColumnFull.setAttribute('class', 'column-full list-entry');
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row entry-ul');
@@ -207,3 +207,14 @@ function handleCloseModal(event) {
   $openModal.classList.add('hidden');
   $overlay.classList.add('hidden');
 }
+
+// var $btnConfirm = document.querySelector('.btn-confirm');
+// $btnConfirm.addEventListener('click', handleEntryDelete);
+
+// function handleEntryDelete(event) {
+//   var liColumnFull = event.target.closest('[data-entry-id]');
+//   $viewEntry.className = ('view');
+//   console.log(liColumnFull);
+// }
+
+// console.log(liColumnFull.getAttribute('data-entry-id'));
