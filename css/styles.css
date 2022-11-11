@@ -22,6 +22,17 @@ header {
   color: whitesmoke;
 }
 
+.overlay {
+  background: rgb(0 0 0 / 75%);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
 h2 {
   font-size: 2rem;
 }
@@ -56,12 +67,60 @@ textarea {
   box-shadow: 3px 4px 6px 2px rgb(186, 186, 186);
 }
 
+.container-modal {
+  position: relative;
+  margin: 0 auto;
+}
+
+.delete-entry-modal {
+  margin: 0 auto;
+  width: 400px;
+  height: 150px;
+  background-color: white;
+  border-radius: 6px;
+  padding: 1.5em;
+  position: absolute;
+  text-align: center;
+  top: 300px;
+  left: 250px;
+  z-index: 2;
+}
+
 .utl-container {
   margin-bottom: 2rem;
 }
 
+.btn-cancel {
+  color: black;
+  background-color: rgb(184, 181, 181);
+  border-radius: 4px;
+  margin-right: 50px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.btn-confirm {
+  color: white;
+  background-color: red;
+  border-radius: 4px;
+  margin-left: 50px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
 .btn-container {
-  text-align: right;
+  position: relative;
+}
+
+.btn-delete {
+  color: red;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.btn-save {
+  position: absolute;
+  right: 0;
 }
 
 .btn-new {
@@ -138,4 +197,11 @@ li {
 .entry-list-notes {
   line-height: 1.75;
   margin-top: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .delete-entry-modal {
+    left: 20px;
+  }
+}
 }
