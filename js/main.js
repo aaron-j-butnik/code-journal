@@ -6,6 +6,7 @@ var $addDOMTree = document.querySelector('.entry-ul');
 $imageSubmit.addEventListener('input', handlePhotoUpdate);
 $submitForm.addEventListener('submit', handleSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMLoad);
+window.addEventListener('DOMContentLoaded', handlePageRefresh);
 
 function handlePhotoUpdate(event) {
   $imageUpdate.setAttribute('src', event.target.value);
@@ -13,19 +14,34 @@ function handlePhotoUpdate(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  var userEntryData = {};
+  if (data.editing === null) {
+    var userEntryData = {};
 
-  userEntryData.title = $submitForm.elements.title.value;
-  userEntryData.url = $submitForm.elements.url.value;
-  userEntryData.notes = $submitForm.elements.notes.value;
-  userEntryData.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(userEntryData);
+    userEntryData.title = $submitForm.elements.title.value;
+    userEntryData.url = $submitForm.elements.url.value;
+    userEntryData.notes = $submitForm.elements.notes.value;
+    userEntryData.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(userEntryData);
 
-  $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $submitForm.reset();
+    $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $submitForm.reset();
 
-  $addDOMTree.prepend(renderEntry(userEntryData));
+    $addDOMTree.prepend(renderEntry(userEntryData));
+
+  } else {
+    var updateTitle = document.querySelector('#user-title');
+    data.editing.title = updateTitle.value;
+
+    var updateParagraph = document.querySelector('#user-notes');
+    data.editing.notes = updateParagraph.value;
+
+    var updateUrl = document.querySelector('.image-submit');
+    data.editing.url = updateUrl.value;
+
+  }
+  handleDOMLoad();
+  data.editing = null;
 }
 
 function renderEntry(entry) {
@@ -46,8 +62,11 @@ function renderEntry(entry) {
   var h3Content = document.createTextNode(entry.title);
   h3Title.setAttribute('class', 'entry-list-title');
 
+  var penIcon = document.createElement('a');
+  penIcon.setAttribute('class', 'fa-solid fa-pencil');
+
   var divText = document.createElement('div');
-  divText.setAttribute('class', 'column-half');
+  divText.setAttribute('class', 'column-half edit-btn');
 
   var paragraph = document.createElement('p');
   var pContent = document.createTextNode(entry.notes);
@@ -58,15 +77,19 @@ function renderEntry(entry) {
   divRow.appendChild(divText);
   divImg.appendChild(imgEntryEl);
   divText.appendChild(h3Title);
+  divText.appendChild(penIcon);
   divText.appendChild(paragraph);
-
   h3Title.appendChild(h3Content);
   paragraph.appendChild(pContent);
+
+  liColumnFull.setAttribute('data-entry-id', entry.entryId);
 
   return liColumnFull;
 }
 
 function handleDOMLoad(event) {
+  $addDOMTree.textContent = '';
+
   for (var i = 0; i < data.entries.length; i++) {
     $addDOMTree.appendChild(renderEntry(data.entries[i]));
   }
@@ -106,6 +129,9 @@ function handleSwapToNewEntry(event) {
       }
     }
     data.view = 'entry-form';
+    $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $submitForm.reset();
+    $h2Editing.classList.add('hidden');
   }
 }
 
@@ -120,14 +146,45 @@ function handleSaveBtnSwap(event) {
   data.view = 'entries';
 }
 
-window.addEventListener('DOMContentLoaded', handlePageRefresh);
-
 function handlePageRefresh(event) {
   if (data.view === 'entry-form') {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
+    $h2Editing.classList.add('hidden');
   } else if (data.view === 'entries') {
     $viewEntry.className = ('view');
     $entryForm.className = ('hidden');
+  }
+}
+
+var $ulParentOfDOM = document.querySelector('.entry-ul');
+var $h2Entry = document.querySelector('.new-entry ');
+var $h2Editing = document.querySelector('.edit-entry');
+
+$ulParentOfDOM.addEventListener('click', handleEditBtn);
+
+function handleEditBtn(event) {
+  var liColumnFull = event.target.closest('[data-entry-id]');
+  if (event.target.matches('div.column-half > a')) {
+    $entryForm.className = ('view');
+    $viewEntry.className = ('hidden');
+    $h2Entry.classList.add('hidden');
+    $h2Editing.classList.remove('hidden');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (Number(liColumnFull.getAttribute('data-entry-id')) === data.entries[i].entryId) {
+        data.editing = data.entries[i];
+      }
+    }
+    var updateTitle = document.querySelector('#user-title');
+    updateTitle.value = data.editing.title;
+
+    var updateParagraph = document.querySelector('#user-notes');
+    updateParagraph.value = data.editing.notes;
+
+    var updateUrl = document.querySelector('.image-submit');
+    updateUrl.value = data.editing.url;
+
+    var updateImg = document.querySelector('#entry-image');
+    updateImg.setAttribute('src', data.editing.url);
   }
 }

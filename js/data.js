@@ -1,4 +1,4 @@
-// /* exported data */
+/* exported data */
 
 var data = {
   view: 'entry-form',
@@ -19,7 +19,3 @@ function handleLocalStorage(event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('user-entry-data-local-storage', dataJSON);
 }
-
-// var $entryForm = document.getElementById('entry-form');
-// var $viewEntry = document.getElementById('view-entry');
-// var $viewElements = document.querySelectorAll('.view');
