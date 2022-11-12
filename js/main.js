@@ -50,7 +50,7 @@ function renderEntry(entry) {
   liColumnFull.setAttribute('class', 'column-full list-entry');
 
   var divRow = document.createElement('div');
-  divRow.setAttribute('class', 'row entry-ul');
+  divRow.setAttribute('class', 'row');
 
   var divImg = document.createElement('div');
   divImg.setAttribute('class', 'column-half');
@@ -208,13 +208,19 @@ function handleCloseModal(event) {
   $overlay.classList.add('hidden');
 }
 
-// var $btnConfirm = document.querySelector('.btn-confirm');
-// $btnConfirm.addEventListener('click', handleEntryDelete);
+var $btnConfirm = document.querySelector('.btn-confirm');
+$btnConfirm.addEventListener('click', handleEntryDelete);
 
-// function handleEntryDelete(event) {
-//   var liColumnFull = event.target.closest('[data-entry-id]');
-//   $viewEntry.className = ('view');
-//   console.log(liColumnFull);
-// }
-
-// console.log(liColumnFull.getAttribute('data-entry-id'));
+function handleEntryDelete(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  $openModal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+  $viewEntry.className = ('view');
+  data.editing = null;
+  handleDOMLoad();
+  handleSwapToEntries(event);
+}

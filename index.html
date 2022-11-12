@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="row container">
       <div class="column-full">
-        <div class="overlay hidden"></div>
         <div class="row nav-styles">
           <h1>Code Journal</h1>
           <a class="nav-link" href="#">Entries</a>
@@ -32,11 +30,6 @@
   </header>
   <main class="container">
     <div class="container-modal">
-      <div class="delete-entry-modal hidden">
-        <p>Are you sure you want to delete this entry?</p>
-        <a class="btn-cancel" href="#">CANCEL</a>
-        <a class="btn-confirm" href="#">CONFIRM</a>
-      </div>
     </div>
     <div class="view" id="entry-form" data-view="entry-form">
       <div class="row">
@@ -90,7 +83,15 @@
       </div>
     </div>
   </main>
+  <div class="overlay hidden">
+    <div class="delete-entry-modal hidden">
+      <p>Are you sure you want to delete this entry?</p>
+      <a class="btn-cancel" href="#">CANCEL</a>
+      <a class="btn-confirm" href="#">CONFIRM</a>
+    </div>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
