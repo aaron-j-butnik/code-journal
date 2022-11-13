@@ -2,6 +2,7 @@ var $imageSubmit = document.querySelector('.image-submit');
 var $imageUpdate = document.querySelector('img');
 var $submitForm = document.querySelector('.user-entry-form');
 var $addDOMTree = document.querySelector('.entry-ul');
+var $btnDelete = document.querySelector('.btn-delete');
 
 $imageSubmit.addEventListener('input', handlePhotoUpdate);
 $submitForm.addEventListener('submit', handleSubmit);
@@ -46,10 +47,10 @@ function handleSubmit(event) {
 
 function renderEntry(entry) {
   var liColumnFull = document.createElement('li');
-  liColumnFull.setAttribute('class', 'column-full');
+  liColumnFull.setAttribute('class', 'column-full list-entry');
 
   var divRow = document.createElement('div');
-  divRow.setAttribute('class', 'row entry-ul');
+  divRow.setAttribute('class', 'row');
 
   var divImg = document.createElement('div');
   divImg.setAttribute('class', 'column-half');
@@ -132,6 +133,7 @@ function handleSwapToNewEntry(event) {
     $imageUpdate.setAttribute('src', 'images/placeholder-image-square.jpg');
     $submitForm.reset();
     $h2Editing.classList.add('hidden');
+    $btnDelete.classList.add('hidden');
   }
 }
 
@@ -165,6 +167,7 @@ $ulParentOfDOM.addEventListener('click', handleEditBtn);
 
 function handleEditBtn(event) {
   var liColumnFull = event.target.closest('[data-entry-id]');
+  $btnDelete.classList.remove('hidden');
   if (event.target.matches('div.column-half > a')) {
     $entryForm.className = ('view');
     $viewEntry.className = ('hidden');
@@ -187,4 +190,37 @@ function handleEditBtn(event) {
     var updateImg = document.querySelector('#entry-image');
     updateImg.setAttribute('src', data.editing.url);
   }
+}
+
+$btnDelete.addEventListener('click', handleDeleteModal);
+var $openModal = document.querySelector('.delete-entry-modal');
+var $overlay = document.querySelector('.overlay');
+function handleDeleteModal(event) {
+  $openModal.classList.remove('hidden');
+  $overlay.classList.remove('hidden');
+}
+
+var $btnCancel = document.querySelector('.btn-cancel');
+$btnCancel.addEventListener('click', handleCloseModal);
+
+function handleCloseModal(event) {
+  $openModal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+}
+
+var $btnConfirm = document.querySelector('.btn-confirm');
+$btnConfirm.addEventListener('click', handleEntryDelete);
+
+function handleEntryDelete(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  $openModal.classList.add('hidden');
+  $overlay.classList.add('hidden');
+  $viewEntry.className = ('view');
+  data.editing = null;
+  handleDOMLoad();
+  handleSwapToEntries(event);
 }
